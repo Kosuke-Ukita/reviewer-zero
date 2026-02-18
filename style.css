@@ -1,0 +1,138 @@
+/* --- 変数定義 (ここを変えるだけでアクセントカラー変更可能) --- */
+:root {
+    --bg-color: #0e0e0e;        /* 全体の背景色 (ほぼ黒) */
+    --card-bg: #1a1a1a;         /* カードの背景色 */
+    --text-main: #ffffff;       /* メインテキスト */
+    --text-sub: #b0b0b0;        /* サブテキスト */
+    --accent-color: #ff8c00;    /* ★アクセントカラー (オレンジ) */
+    --accent-glow: rgba(255, 140, 0, 0.4); /* アクセントの光彩 */
+    --shadow-white: rgba(255, 255, 255, 0.08); /* 白い影 */
+}
+
+/* --- 1. 全体設定 --- */
+.stApp {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+/* --- 2. タイトルとヘッダー --- */
+.main-title {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #ffffff, #888888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 使い方ガイドボックス */
+.guide-box {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--accent-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px var(--shadow-white);
+}
+.guide-text {
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.guide-title {
+    color: var(--text-main);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+/* --- 3. サイドバー --- */
+section[data-testid="stSidebar"] {
+    background-color: #050505; /* サイドバーはさらに暗く */
+    border-right: 1px solid #333;
+}
+
+/* --- 4. ボタン (オレンジアクセント) --- */
+.stButton > button {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+.stButton > button:hover {
+    background-color: var(--accent-color);
+    color: #000; /* ホバー時は黒文字 */
+    box-shadow: 0 0 15px var(--accent-glow);
+    border-color: var(--accent-color);
+}
+.stButton > button:active {
+    transform: scale(0.98);
+}
+
+/* --- 5. インプットフィールド & アップローダー --- */
+[data-testid="stFileUploader"] {
+    background-color: var(--card-bg);
+    border: 1px dashed #444;
+    border-radius: 10px;
+    padding: 20px;
+    transition: border 0.3s;
+}
+[data-testid="stFileUploader"]:hover {
+    border-color: var(--accent-color);
+}
+.stTextInput > div > div > input {
+    background-color: #222;
+    color: white;
+    border: 1px solid #444;
+}
+.stSelectbox > div > div {
+    background-color: #222;
+    color: white;
+}
+
+/* --- 6. 結果表示エリア (カード風) --- */
+.result-card {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px var(--shadow-white);
+}
+
+/* Markdownの見出し */
+.result-card h1, .result-card h2, .result-card h3 {
+    color: var(--text-main);
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+    margin-top: 1.5rem;
+}
+.result-card strong {
+    color: var(--accent-color);
+}
+
+/* --- 7. チャットメッセージ --- */
+.stChatMessage {
+    background-color: var(--card-bg) !important;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+[data-testid="chatAvatarIcon-user"] {
+    background-color: var(--accent-color) !important;
+}
+[data-testid="chatAvatarIcon-assistant"] {
+    background-color: #444 !important;
+}
+
+/* --- 8. FontAwesomeアイコンの調整 --- */
+.icon {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+}
